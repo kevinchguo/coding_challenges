@@ -27,10 +27,13 @@ console.log(SimpleAdding(10));
 // The function will take the str parameter being passed and capitalize the first letter of each word.  Words will be separated by only one space.
 
 function LetterCapitalize(str) {
-    var firstLetter = str.charAt(0).toUpperCase();
-    var remainingWord = str.slice(1,100);
-    var fullWord = firstLetter + remainingWord; 
-    return fullWord;
+    var splitString = str.split(' ');
+    // console.log(splitString)
+    for (var i = 0; i < splitString.length; i++) {
+        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);
+        // console.log(splitString)
+    } 
+    return splitString.join(' ');
 }
 console.log(LetterCapitalize("hello today is a good day"));
 
@@ -39,6 +42,7 @@ console.log(LetterCapitalize("hello today is a good day"));
 
 function rangeRover(arr) { 
     let min = Math.min(arr[0], arr[1]), max = Math.max(arr[0], arr[1]);
+    //th
     // let emptyArr = [];
     // return (max - min +1) * (max + min)/2;
     let sum = max;
@@ -52,28 +56,76 @@ console.log(rangeRover([1,5]))
 
 // Function missingLetter(str)
 // The function will find the missing letter passed in the parameter and return it.  If all letters are present in the string, the return will be undefined.  For example missingLetter("abce") should return "d", missingLetter("bcd") should return undefined.
-
-function missingLetter(str) {
-    let letters = /^[A-Za-z]+$/;
-    return letters;
+/*  A=65
+    a=97
+    Z=90
+    z=122
+*/
+function missingLetter(str) { 
+    let newArr = [];
+    for (var i = 65; i < 123; i++) {
+        let convertToLetter = String.fromCharCode(i)
+        console.log(convertToLetter);
+        newArr.push(convertToLetter);
+        console.log(newArr)
+        
+         for (var x = 0; x < str.length; x++) {
+             console.log(str.charAt(x))
+        }
+        
+    }
+    // if (str.charAt(x) ===) {
+    //     return undefined;
+    //     } else {
+    //      return "hello";
+    //     }
 }
 
-console.log(missingLetter())
+
+console.log(missingLetter("abcd"))
 // Function hailCaesar(num)
 // The function will take the num parameter and convert the given number into a roman numeral.  For example hailCaesar(2) should return "II", hailCaesar(5) should return "V".
 
-function hailCaesar(num) {
-    let romanNum = [0, "I","II","III","IV","V","VI","VII","VIII","IX","X"]
-    return romanNum[num];
-}
-console.log(hailCaesar(5))
+//Original code didnt account for bigger numbers
+// function hailCaesar(num) {
+//     let romanNum = [0, "I","II","III","IV","V","VI","VII","VIII","IX","X"]
+//     return romanNum[num];
+// }
+// console.log(hailCaesar(5))
 
+//help from calvin
+function hailCaesar(num){
+    var answer = '';
+    var roman = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    }
+    for(var key in roman){
+        while(num >= roman[key]) {
+            answer += key;
+            num -= roman[key];
+        }
+    }
+    return answer;
+ }
+console.log(hailCaesar(999))
 // Function spinalTap(str)
 // The function will convert a string to spinal case.  Spinal case is all-lowercase-words-joined-by-dashes.  For example spinalTap("I own this Taco Stand!") should return "i-own-this-taco-stand!".
 
 function spinalTap(str) {
     let lowercase = str.toLowerCase();
-    let spinalCase = lowercase.replace(/ /g, "-");
+    let spinalCase = lowercase.replace(/ /g, "-"); //when using replace looking for the variable goes between / /g and g means global, second parameter is what it will be replaced with
     return spinalCase;
 }
 
