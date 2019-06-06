@@ -61,28 +61,49 @@ console.log(rangeRover([1,5]))
     Z=90
     z=122
 */
+
+// function missingLetter(str) {
+//     var i, j = 0, m = 122;
+//     if (str) {
+//         i = str.charCodeAt(0);
+//         while (i <= m && j < str.length) {
+//             if (String.fromCharCode(i) !== str.charAt(j)) {
+//                 return String.fromCharCode(i);
+//             }
+//             i++; j++;
+//         }
+//     }
+//     return undefined;
+// }
+
+// console.log(missingLetter("abcdf"))
+
 function missingLetter(str) { 
-    let newArr = [];
-    for (var i = 65; i < 123; i++) {
-        let convertToLetter = String.fromCharCode(i)
-        console.log(convertToLetter);
-        newArr.push(convertToLetter);
-        console.log(newArr)
-        
-         for (var x = 0; x < str.length; x++) {
-             console.log(str.charAt(x))
+    // let newArr = [];
+    function startLoop(num) {
+        for (var i = num; i <= 122; i++) {
         }
-        
     }
-    // if (str.charAt(x) ===) {
-    //     return undefined;
-    //     } else {
-    //      return "hello";
-    //     }
+            // let convertToLetter = String.fromCharCode(i)
+            // console.log(convertToLetter);
+            // newArr.push(convertToLetter);
+            // console.log(newArr)
+            // for (var x = 0; x < str.length; x++) {
+                // console.log(x)
+                //  console.log(str.charAt(x))
+                let x = 65; y = '';
+                while(startLoop(str.charCodeAt(0)) <= 122 && x <= str.length) {
+                    if (str.charCodeAt(0) !== startLoop(str.charCodeAt(0))) {
+                       let y = String.fromCharCode(startLoop(str.charCodeAt(0)));
+                    }
+                x++;
+                }
+                // return undefined;
+            // } 
 }
 
 
-console.log(missingLetter("abcd"))
+console.log(missingLetter("abd"))
 // Function hailCaesar(num)
 // The function will take the num parameter and convert the given number into a roman numeral.  For example hailCaesar(2) should return "II", hailCaesar(5) should return "V".
 
