@@ -170,3 +170,19 @@ console.log(spinalTap("hello world, How are you doIng?"))
 // Function sumFibs(num)
 // The function will return the sum of all ODD Fibonacci numbers up to and including the passed number if it's a Fibonacci number.  The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, where the next number is found by adding up the two numbers before it.  For example subFibs(4) should return 5, sumbFibs(1000) should return 1785.
 
+function sumbFibs(num) {
+    var start = 0;
+    var next = 1;
+    var current;
+    var sumOdd = 0;
+    for(var i = 0; i <= num; i++) {
+        current = start + next;
+        start = next;
+        next = current;
+        if (current % 2 !== 0 && current <= num) {
+            sumOdd = current + sumOdd;
+        }
+    }
+    return sumOdd + 1;
+}
+console.log(sumbFibs(4));
