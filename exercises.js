@@ -62,6 +62,16 @@ console.log(rangeRover([1,5]))
     z=122
 */
 
+function missingLetter(str) {
+    for (var i = 0; i < str.length -1; i++) {
+        if(str.charCodeAt(i+1) - str.charCodeAt(i) !== 1) {
+            return String.fromCharCode(str.charCodeAt(i)+1)
+        }
+    }
+}
+
+console.log(missingLetter("abce"));
+
 // function missingLetter(str) {
 //     var i, j = 0, m = 122;
 //     if (str) {
@@ -78,32 +88,34 @@ console.log(rangeRover([1,5]))
 
 // console.log(missingLetter("abcdf"))
 
-function missingLetter(str) { 
-    // let newArr = [];
-    function startLoop(num) {
-        for (var i = num; i <= 122; i++) {
-        }
-    }
-            // let convertToLetter = String.fromCharCode(i)
-            // console.log(convertToLetter);
-            // newArr.push(convertToLetter);
-            // console.log(newArr)
-            // for (var x = 0; x < str.length; x++) {
-                // console.log(x)
-                //  console.log(str.charAt(x))
-                let x = 65; y = '';
-                while(startLoop(str.charCodeAt(0)) <= 122 && x <= str.length) {
-                    if (str.charCodeAt(0) !== startLoop(str.charCodeAt(0))) {
-                       let y = String.fromCharCode(startLoop(str.charCodeAt(0)));
-                    }
-                x++;
-                }
-                // return undefined;
-            // } 
-}
 
 
-console.log(missingLetter("abd"))
+// function missingLetter(str) { 
+//     // let newArr = [];
+//     function startLoop(num) {
+//         for (var i = num; i <= 122; i++) {
+//         }
+//     }
+//             // let convertToLetter = String.fromCharCode(i)
+//             // console.log(convertToLetter);
+//             // newArr.push(convertToLetter);
+//             // console.log(newArr)
+//             // for (var x = 0; x < str.length; x++) {
+//                 // console.log(x)
+//                 //  console.log(str.charAt(x))
+//                 let x = 65; y = '';
+//                 while(startLoop(str.charCodeAt(0)) <= 122 && x <= str.length) {
+//                     if (str.charCodeAt(0) !== startLoop(str.charCodeAt(0))) {
+//                         = String.fromCharCode(startLoop(str.charCodeAt(0)));
+//                     }
+//                 x++;
+//                 }
+//                 // return undefined;
+//             // } 
+// }
+
+
+// console.log(missingLetter("abd"))
 // Function hailCaesar(num)
 // The function will take the num parameter and convert the given number into a roman numeral.  For example hailCaesar(2) should return "II", hailCaesar(5) should return "V".
 
@@ -113,6 +125,8 @@ console.log(missingLetter("abd"))
 //     return romanNum[num];
 // }
 // console.log(hailCaesar(5))
+
+
 
 //help from calvin
 function hailCaesar(num){
@@ -132,6 +146,7 @@ function hailCaesar(num){
         IV: 4,
         I: 1
     }
+    debugger;
     for(var key in roman){
         while(num >= roman[key]) {
             answer += key;
